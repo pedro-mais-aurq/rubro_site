@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fundação Florence Nightingale</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Cormorant+Garamond:wght@300;400;600&family=Lato:wght@300;400;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="css/css.css">
+
+    <style>
+        /* ── Fundadores ── */
+        .fundadores-intro {
+            text-align: center;
+            padding: 90px 80px 20px;
+            background: var(--cream);
+        }
+
+        .fundadores-intro .eyebrow {
+            font-family: 'Lato', sans-serif;
+            font-size: 11px;
+            letter-spacing: 3.5px;
+            text-transform: uppercase;
+            color: var(--gold);
+            display: block;
+            margin-bottom: 16px;
+        }
+
+        .fundadores-intro h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(32px, 4vw, 52px);
+            color: var(--crimson-dark);
+            font-weight: 400;
+            line-height: 1.2;
+            margin-bottom: 18px;
+        }
+
+        .fundadores-intro .divider-gold {
+            width: 60px;
+            height: 2px;
+            background: var(--gold);
+            margin: 0 auto;
+        }
+
+        /* ── Grid de membros ── */
+        .informacao {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            background: var(--cream);
+            padding: 60px 0 100px;
+        }
+
+        .membro {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            min-height: 420px;
+        }
+
+        .membro.invertido {
+            direction: rtl;
+        }
+
+        .membro.invertido>* {
+            direction: ltr;
+        }
+
+        /* Foto */
+        .foto {
+            position: relative;
+            overflow: hidden;
+            background: var(--crimson-dark);
+        }
+
+        .foto img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            opacity: 0.88;
+            transition: transform 0.6s ease, opacity 0.4s ease;
+        }
+
+        .membro:hover .foto img {
+            transform: scale(1.04);
+            opacity: 1;
+        }
+
+        /* Linha dourada decorativa no canto da foto */
+        .foto::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40%;
+            height: 3px;
+            background: var(--gold);
+        }
+
+        .membro.invertido .foto::after {
+            left: auto;
+            right: 0;
+        }
+
+        /* Texto */
+        .texto {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 60px 70px;
+            background: var(--cream);
+            border-bottom: 1px solid rgba(122, 0, 0, 0.08);
+        }
+
+        .membro.invertido .texto {
+            background: #fff;
+        }
+
+        .texto .cargo {
+            font-family: 'Lato', sans-serif;
+            font-size: 10.5px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 14px;
+        }
+
+        .citacao {
+            color: var(--crimson-light);
+            font-family: 'Lato', sans-serif;
+            font-size: 10.5px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 14px;
+            margin-top: 5px;
+        }
+
+        .texto h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(26px, 2.5vw, 38px);
+            color: var(--crimson-dark);
+            font-weight: 400;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .texto .apelido {
+            font-style: italic;
+            color: var(--crimson-light);
+        }
+
+        .texto .linha-divisor {
+            width: 40px;
+            height: 1.5px;
+            background: var(--gold);
+            margin-bottom: 20px;
+        }
+
+        .texto p {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 22px;
+            color: var(--text-mid);
+            line-height: 1.75;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+
+            .membro,
+            .membro.invertido {
+                grid-template-columns: 1fr;
+                direction: ltr;
+                min-height: unset;
+            }
+
+            .foto {
+                height: 320px;
+            }
+
+            .texto {
+                padding: 40px 36px;
+            }
+
+            .fundadores-intro {
+                padding: 80px 36px 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .foto {
+                height: 260px;
+            }
+
+            .texto {
+                padding: 32px 24px;
+            }
+        }
+    </style>
+</head>
+
+<BODY>
+
+    <header id="header">
+        <div class="logo-area">
+            <div class="logo-icon">✦</div>
+            <div class="logo-text">
+                <span>Fundação Florence Nightingale</span>
+                <span>Cuidar · Transformar · Humanizar</span>
+            </div>
+        </div>
+
+        <nav>
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="fundadores.html">Fundadores</a></li>
+                <li><a href="#projetos">Projetos</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+        </nav>
+
+        <div class="hamburger" id="hamburger" aria-label="Menu" role="button" tabindex="0">
+            <span></span><span></span><span></span>
+        </div>
+    </header>
+
+    <div class="mobile-nav" id="mobileNav">
+        <ul>
+            <li><a href="#inicio" class="mobile-link">Início</a></li>
+            <li><a href="#sobre" class="mobile-link">Sobre</a></li>
+            <li><a href="#projetos" class="mobile-link">Projetos</a></li>
+            <li><a href="#contato" class="mobile-link">Contato</a></li>
+        </ul>
+    </div>
+
+    <section class="hero dois">
+    </section>
+
+    <!-- Introdução da seção -->
+    <div class="fundadores-intro">
+        <span class="eyebrow">Quem somos</span>
+        <h2>Os Fundadores</h2>
+        <div class="divider-gold"></div>
+    </div>
+
+    <section class="informacao">
+
+        <!-- Pedro -->
+        <div class="membro">
+            <div class="foto">
+                <img src="imagens/marcolino.png" alt="Pedro Neres">
+            </div>
+            <div class="texto">
+                <span class="cargo">Co-fundador</span>
+                <h2>Vitor <span class="apelido">"Marcolino"</span> Hugo</h2>
+                <div class="linha-divisor"></div>
+                <p>Cria do Morro do Papagaio, se tornou mestre em administração pela Universidade Federal de Minas
+                    Gerais e
+                    participou da gestão
+                    de inúmeras empresas milionárias, tal qual Bet777, Blaze e Fatal Model. Após adquirir vasta
+                    experiência na área,
+                    se uniu aos fundadores da fundação Florence Nightingale como diretor geral e responsável pela
+                    administração financeira.</p>
+
+                <span class="citacao">"Essa é de chefe, bandido."</span>
+            </div>
+        </div>
+
+        <!-- Sales -->
+        <div class="membro invertido">
+            <div class="foto">
+                <img src="imagens/sales.png" alt="Arthur Sales">
+            </div>
+            <div class="texto">
+                <span class="cargo">Co-fundador</span>
+                <h2>Arthur <span class="apelido">"Satélite"</span> Sales</h2>
+                <div class="linha-divisor"></div>
+                <p>Vindo de Kibera, Arthur Sales ingressou na Pontíficia Univerdade Católica de Minas Gerais aos 19
+                    anos.
+                    Ele se formou em medicina, com pós doutorado metafísico em Imunologia.
+                    Graças ao seu parentesco com o vencedor do BBB 24, Davi Brito, ele conheceu os 4 co-fundadores da
+                    fundação
+                    Florence Nightingale e se tornou o cirurgião chefe do hospital.</p>
+
+                <span class="citacao">"O sonho do oprimido é ser o opressor."</span>
+            </div>
+        </div>
+
+        <!-- Pietro -->
+        <div class="membro">
+            <div class="foto">
+                <img src="imagens/pietro.png" alt="Pietro Ferreira">
+            </div>
+            <div class="texto">
+                <span class="cargo">Co-fundador</span>
+                <h2>Pietro <span class="apelido">"Mendigo"</span> Ferreira</h2>
+                <div class="linha-divisor"></div>
+                <p>Embora muito doce, Pietro teve de crescer com a ausência de um parente próximo muito importante.
+                    Isso, ao contrário do que muitos pensam, o fez desenvolver uma empatia petencostal muito grande;
+                    graças a isso, dedicou sua vida à ajudar os outros através da medicina. Formado em medicina e
+                    administração, se tornou doutor em urologia. Após fazer sua carreira em diversos hospitais pelo
+                    mundo, se juntou com seus amigos de infância para fundar um hospital especializado em tratar a causa
+                    da morte precoce de seu pai: as ameaças microscópicas.
+                </p>
+
+                <span class="citacao">"Se eu já perdoei antes, perdoarei de novo."</span>
+            </div>
+        </div>
+
+        <!-- Daniel -->
+        <div class="membro invertido">
+            <div class="foto">
+                <img src="imagens/daniel.png" alt="Daniel Aguiar">
+            </div>
+            <div class="texto">
+                <span class="cargo">Co-fundador</span>
+                <h2>Daniel <span class="apelido">"Sid"</span> Aguiar</h2>
+                <div class="linha-divisor"></div>
+                <p>Seu hiperfoco em desmontar brinquedos na infância o fez se dedicar aos estudos da anatomia humana.
+                    Por este motivo, ele estudou arduamente para passar na PUC Minas pelo ENEM; no entanto, acabou
+                    falhando.
+                    Sua vontade de ajudar os outros, porém, foi maior que a dor do fracasso — tomado por tamanha
+                    tenacidade, iniciou um curso gratuito EAD no Youtube com Sandro Curió. Sua qualidade
+                    de trabalho não foi limitada por onde estudou, e Daniel conseguiu
+                    se tornar um proctologista renomado na área graças ao curso EAD capacitante com as renomadas doutoras Cátia Damasceno e Andressa Dayane. Com seus companheiros de longa data, fundou a Florence
+                    Nightingale com
+                    objetivo de ajudar o máximo de pessoas possíveis.
+                </p>
+                <span class="citacao">"O silêncio vale mais que mil palavras."</span>
+            </div>
+        </div>
+
+        <!-- Pedro -->
+        <div class="membro ">
+            <div class="foto">
+                <img src="imagens/pedro.png" alt="Pedro Neres">
+            </div>
+            <div class="texto">
+                <span class="cargo">Co-fundador</span>
+                <h2>Pedro <span class="apelido">"PPP"</span> Neres</h2>
+                <div class="linha-divisor"></div>
+                <p>Dentre os fundadores, o menor. Assim como Messi, era pequeno, autista e eficiente em seu trabalho.
+                    Capacitado pela universidade de Havard, seguiu carreira como programador e mastologista —
+                    exclusivamente masculino.
+                    Sua carreira brilhante na mastologia masculina o fez ser indicado ao cargo de diretor técnico da
+                    iniciativa
+                    de seus amigos de infância na Florence Nightingale.
+
+                </p>
+                <span class="citacao">"imagine sísifo feliz."</span>
+            </div>
+        </div>
+    </section>
+</BODY>
+<script>
+
+    // Scrollar
+    const header = document.getElementById("header");
+    let lastScroll = 0;
+
+    window.addEventListener("scroll", () => {
+        const current = window.pageYOffset;
+        header.classList.toggle("scrolled", current > 50);
+        header.classList.toggle("hide", current > lastScroll && current > 120);
+        lastScroll = current;
+    });
+
+    // menu barrinha
+    const hamburger = document.getElementById("hamburger");
+    const mobileNav = document.getElementById("mobileNav");
+
+    hamburger.addEventListener("click", () => {
+        hamburger.classList.toggle("active");
+        mobileNav.classList.toggle("open");
+    });
+
+    document.querySelectorAll(".mobile-link").forEach(link => {
+        link.addEventListener("click", () => {
+            hamburger.classList.remove("active");
+            mobileNav.classList.remove("open");
+        });
+    });
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+            if (e.isIntersecting) {
+                e.target.classList.add("visible");
+                observer.unobserve(e.target);
+            }
+        });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
+</script>
+
+</html>
