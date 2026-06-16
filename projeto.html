@@ -46,31 +46,30 @@
         </ul>
     </div>
 
-    <section class="hero" id="inicio">
+    <section class="hero tres" id="inicio">
     </section>
 
-    <button onclick="abrirJogo()">Jogar</button>
+    <div class="fundadores-intro">
+        <span class="eyebrow">Projeto Conscientizador</span>
+        <h2>RUBRO</h2>
+        <div class="divider-gold"></div>
+    </div>
+
+    <button class = "jogo" onclick="abrirJogo()">Jogar</button>
+    <button class = "jogo" onclick="baixar" ()>Baixar</button>
 
 
 </body>
 
 <script>
     function abrirJogo() {
-
-        // tenta abrir o jogo instalado
         window.location.href = "rubro2://jogar";
 
-        // fallback se não tiver instalado
-        setTimeout(() => {
-            window.location.href =
-                "https://github.com/pedro-mais-aurq/rubro_site/releases/download/v1.0/registrar_rubro2.reg";
-    }, 2000);
-        setTimeout(() => {
-            window.location.href =
-                "https://github.com/pedro-mais-aurq/rubro_site/releases/download/v1.0/Rubro2.zip";
-        }, 2000);
+    }
 
-
+    function baixar() {
+        window.location.href =
+            "https://github.com/pedro-mais-aurq/rubro_site/releases/download/v1.0/registrar_rubro2.reg";
     }
 </script>
 
